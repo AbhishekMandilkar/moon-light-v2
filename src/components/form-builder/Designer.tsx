@@ -12,7 +12,6 @@ import {
 } from "./FormElements";
 import { Button } from "../ui/button";
 import { Trash2 } from "lucide-react";
-import generateRandomUUID from "@/lib/uuidGenerator";
 
 function Designer() {
   const {
@@ -45,7 +44,7 @@ function Designer() {
       if (droppingSidebarBtnOverDesignerDropArea) {
         const type = active.data?.current?.type;
         const newElement = FormElements[type as ElementsType].construct(
-          generateRandomUUID(),
+          crypto.randomUUID(),
         );
         addElement(elements.length, newElement);
         return;
@@ -67,7 +66,7 @@ function Designer() {
       if (droppingSidebarBtnOverDesignerElement) {
         const type = active.data?.current?.type;
         const newElement = FormElements[type as ElementsType].construct(
-          generateRandomUUID(),
+          crypto.randomUUID(),
         );
 
         const overId = over.data?.current?.elementId;
